@@ -1,0 +1,39 @@
+# acad-assignment6.2
+
+package assignment6;
+
+class PrimeThread {
+
+	public static void main(String[] args) {
+		Prime p1 = new Prime();
+		Thread t1 = new Thread(p1);
+		t1.start();
+	}
+}
+
+class Prime implements Runnable {
+
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+
+		for (int i = 2; i <= 10; i++) {
+			int cnt = 0;
+			for (int j = 2; j <= i / 2; j++)
+				if (i % j == 0) {
+					cnt++;
+					break;
+				}
+			if (cnt == 0)
+				System.out.println(i + " Number is prime");
+		}
+
+	}
+
+}
+
+output
+2 Number is prime
+3 Number is prime
+5 Number is prime
+7 Number is prime
